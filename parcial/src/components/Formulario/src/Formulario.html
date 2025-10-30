@@ -1,0 +1,62 @@
+<section class="card">
+    <div class="card-header">
+      <h3>Componente Formulario</h3>
+    </div>
+   
+    <div class="card-body">
+      <!--un metodo de validacion podria ser required el cual funciona borrando la etiqueta novalidato,el problema es que es muy facil de eludir/borrar/alterar por lo que no se suele usar-->
+        <form novalidate @submit.prevent="enviar">
+          <!-- campo nombre -->
+          <div class="form-group">
+            <label for="nombre">Nombre
+
+            </label>
+            <!--@input formDirty hace que el campo se marque como "tocado"-->
+            <input type="text" id="nombre" class="form-control" v-model.trim="formData.nombre"  @input="formDirty.nombre = true"/>
+            
+            <!-- cartel validacion -->
+            <div v-if="errorNombre.mostrar" class="alert alert-danger my-1">
+              {{errorNombre.mensaje}}
+            </div> 
+             
+          </div>
+          <!-- campo apellido -->
+          <div class="form-group">
+            <label for="apellido">Apellido
+
+            </label>
+            <input type="text" id="apellido" class="form-control" v-model.trim="formData.apellido" @input="formDirty.apellido = true"/>
+            
+            <!-- cartel validacion -->
+             <div v-if="errorApellido.mostrar" class="alert alert-danger my-1">
+              {{errorApellido.mensaje}}
+            </div>
+             
+          </div>
+          <!-- campo edad -->
+          <div class="form-group">
+            <label for="edad">Edad
+
+            </label>
+            <input type="number" id="edad" class="form-control" v-model.number="formData.edad" @input="formDirty.edad = true"/>
+            
+            <!-- cartel validacion -->
+              <div v-if="errorEdad.mostrar" class="alert alert-danger my-1">
+              {{errorEdad.mensaje}}
+            </div>
+             
+          </div>
+            <button class="btn btn-success my-3" :disabled="estadoBotonDeshabilitado()">Enviar</button>
+            <!-- la propiedad `disabled` debe usarse (no "disable"). -->
+            <!-- ahora `estadoBotonDeshabilitado` es un computed que retorna true/false -->
+        </form>
+        <hr>
+        <p><u>formData</u></p>
+        <!--La etiqueta <pre> convierte los datos ingresados a un formato legible tipo json-->
+        <pre>{{ formData }}</pre>
+
+        <hr>
+        <p><u>formDirty</u></p>
+        <pre>{{ formDirty }}</pre>
+    </div>
+  </section>
