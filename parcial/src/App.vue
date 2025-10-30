@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-header">
         <header>
-          <h2>Parcial</h2>
+          <h2>Conversor de Temperatura</h2>
         </header>
       </div>
 
@@ -11,10 +11,7 @@
         <main>
           <Navbar />
           <RouterView />
-          <!-- <Binding />
-          <Estructura />
-          <Atributos />
-          <Formulario /> -->
+          
         </main>
       </div>
 
@@ -23,22 +20,15 @@
 </template>
 
 <script>
-/* Importo componentes de archivo simple */
+
 import Navbar from './components/Navbar.vue';
-/* import Binding from './components/Binding.vue';
-import Estructura from './components/Estructura.vue';
-import Atributos from './components/Atributos.vue';
-/*Importo componente Formulario de multiples archivos */
-/*import Formulario from './components/Formulario/index.vue'; */
+
 
 export default {
 	name: 'App',
   components: {
     Navbar,
-		/* Binding,
-		Estructura,
-		Atributos,
-    Formulario */
+	
 	},
 	
 }
